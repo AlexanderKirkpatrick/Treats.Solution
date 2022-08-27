@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Treats.Models
+@model Treats.Models.Flavor;
+
+<h2>Are you sure you want to delete this flavor?</h2>
+<br>
+<br>
+@using (Html.BeginForm())
+{
+  <p>Name: @Model.FlavorName</p>
+  <p>Description: @Model.Description</p>
+<br>
+<br>
+  <input type="submit" value="Delete" />
+}
+<br>
+<br>
+<br>
+<p>@Html.ActionLink("Flavors", "Index")</p>
+<p>@Html.ActionLink("Treats", "Index", "Treats")</p>
