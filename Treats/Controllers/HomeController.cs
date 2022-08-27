@@ -26,13 +26,11 @@ namespace Treats.Controllers
         return View();
       }
 
-        public ActionResult Details()
+      public ActionResult Details()
       {
         ViewBag.Treats = _db.Treats.ToList();
         ViewBag.Flavors = _db.Flavors.ToList();
         return View();
       }             
-
-      
     }
 }
