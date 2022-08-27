@@ -9,36 +9,45 @@
 <hr/>
 
 <h3>Name: @Model.FlavorName</h3>
+<br>
 <h3>Description: @Model.Description</h3>
 <br>
-<button class="btn btn-alert">@Html.ActionLink("Delete Flavor", "Delete", new { id = Model.FlavorId})</button>
+<h3>Treats:</h3>
 <br>
-
 @if(@Model.Treats.Count == 0)
 {
-  <h3>This Flavor has no Treats!</h3>
+  <h3>This flavor has no treats!</h3>
+  <br>
   @Html.ActionLink("Would you like to add one?", "AddTreat", new {id = @Model.FlavorId })
 }
 else 
 {
-  <p>Treats for this flavor: </p>
   <ul>
   @foreach(TreatFlavor join in Model.Treats)
   {
     <li>@Html.ActionLink($"{join.Treat.TreatName}", "Details", "Treats", new { id = join.Treat.TreatId })</li>
-  }
-  </ul>
-  @foreach(var join in Model.Treats)
-  {
-  @if (User.Identity.IsAuthenticated)
-      {   
-        @using (Html.BeginForm("DeleteTreat", "Flavors"))
+    @if (User.Identity.IsAuthenticated)
+    {
+    @using (Html.BeginForm("DeleteTreat", "Flavors"))
         {
           @Html.Hidden("joinId", @join.TreatFlavorId)
           <input type="submit" value="Delete"/>
         }
-      }
+    }
   }
+  </ul>
+  }
+<br>
+<br>
+<br>
+@if (User.Identity.IsAuthenticated)
+{
+<p>@Html.ActionLink("Edit Flavor", "Edit", new { id = Model.FlavorId})</p>
+<p>@Html.ActionLink("Delete Flavor", "Delete", new { id = Model.FlavorId})</p>
+<p>@Html.ActionLink("Add another treat to this flavor", "AddTreat", new {id = @Model.FlavorId })</p>
 }
 <br>
-@Html.ActionLink("Add a Treat To this Flavor", "AddTreat", new {id = @Model.FlavorId })
+<br>
+<br>
+<p>@Html.ActionLink("View All Flavors", "Index")</p>
+<p>@Html.ActionLink("View All Treats", "Index", "Treats")</p>

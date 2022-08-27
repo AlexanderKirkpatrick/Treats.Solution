@@ -17,9 +17,17 @@ else
 {
   @foreach(Treat treat in Model)
   {
-    <li>@Html.ActionLink($"{treat.TreatName}", "Details", new {id = Treat.TreatId})</li>
+    <li>@Html.ActionLink($"{treat.TreatName}", "Details", new {id = treat.TreatId})</li>
   }
 }
 <br>
 <br>
+@if (User.Identity.IsAuthenticated)
+{
 <button>@Html.ActionLink("Add A Treat", "Create", "Treats")</button>
+}
+<br>
+<br>
+<br>
+<p>@Html.ActionLink("View All Flavors", "Index", "Flavors")</p>
+<p>@Html.ActionLink("View All", "Details", "Home")</p>

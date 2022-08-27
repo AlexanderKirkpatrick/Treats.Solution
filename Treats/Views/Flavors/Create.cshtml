@@ -6,14 +6,19 @@
 @model Treats.Models.Flavor;
 
 <h4>Add a new flavor to the inventory!</h4>
+<hr>
 <br>
 <br>
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.FlavorName)
+  @Html.Label("Name")
   @Html.TextBoxFor(model => model.FlavorName, new { @class="form-control"})
- <br>
- <br>
+<br>
+<br> 
+  @Html.LabelFor(model => model.Description)
+  @Html.TextBoxFor(model => model.Description, new { @class="form-control"})
+<br>
+<br>
   <input type="submit" value="Add New Flavor"/>
 }
 <br>
@@ -21,4 +26,3 @@
 <br>
 <p>@Html.ActionLink("Flavors", "Index")</p>
 <p>@Html.ActionLink("Treats", "Index", "Treats")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p>

@@ -63,7 +63,7 @@ namespace Treats.Controllers
     {
       _db.Entry(treat).State = EntityState.Modified;
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Details", new { id = treat.TreatId });
     }
 
     [Authorize]
@@ -98,7 +98,7 @@ namespace Treats.Controllers
         _db.TreatFlavor.Add(new TreatFlavor() { FlavorId = FlavorId, TreatId = treat.TreatId});
       }
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Details", new { id = treat.TreatId });
     }
 
     [HttpPost]

@@ -5,19 +5,20 @@
 @using Treats.Models
 @model Treats.Models.Treat
 
-<h1>Remove this treat from the inventory?</h1>
+<h2>Remove this treat from the inventory?</h2>
 <hr/>
-
-<h3>Name: @Model.TreatName</h3>
-
-<h3>Description: @Model.Description</h3>
-
-
-<hr/>
-
-
-<h2>Are you sure you want to remove: @Model.TreatName</h2>
+<br>
+<br>
 @using (Html.BeginForm())
 {
+  <p>Name: @Model.TreatName</p>
+  <p>Description: @Model.Description</p>
+<br>
+<br>
   <button type="submit" class="btn btn-alert">Delete?</button>
 }
+<br>
+<br>
+<br>
+<p>@Html.ActionLink("Treats", "Index")</p>
+<p>@Html.ActionLink("Flavors", "Index", "Flavors")</p>

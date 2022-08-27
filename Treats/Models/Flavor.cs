@@ -7,7 +7,7 @@ namespace Treats.Models
   {
     public Flavor()
     {
-      this.Treats = new HashSet<FlavorTreat>();
+      this.Treats = new HashSet<TreatFlavor>();
     }
 
     public int FlavorId { get; set; }

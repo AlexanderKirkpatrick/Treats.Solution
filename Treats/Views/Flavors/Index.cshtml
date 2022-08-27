@@ -20,4 +20,12 @@ else
   }
 }
 <br>
+@if (User.Identity.IsAuthenticated)
+{
 <button>@Html.ActionLink("Add A Flavor", "Create", "Flavors")</button>
+}
+<br>
+<br>
+<br>
+<p>@Html.ActionLink("View Treats", "Index", "Treats")</p>
+<p>@Html.ActionLink("View All", "Details", "Home")</p>

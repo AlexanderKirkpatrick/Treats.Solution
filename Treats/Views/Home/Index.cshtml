@@ -10,4 +10,14 @@
 <br>
 <p>@Html.ActionLink("Flavors", "Index", "Flavors")</p>
 <br>
-<p>@Html.ActionLink("Show All", "Details")</p>
+<p>@Html.ActionLink("View All", "Details")</p>
+<br>
+<br>
+@if (!User.Identity.IsAuthenticated)
+{
+    @using (Html.BeginForm("LogOff", "Account"))
+    {
+    <p>@Html.ActionLink("Register", "Register", "Account")</p>
+    }
+}  
+ 

@@ -4,19 +4,18 @@
 
 @using Treats.Models
 
-<h4>Treats</h4>
+<h4>@Html.ActionLink("Treats", "Index", "Treats")</h4>
+<hr>
     @foreach (Treat treat in ViewBag.Treats)
     {
       <h5>@Html.ActionLink($"{treat.TreatName}", "Details", "Treats", new { id = treat.TreatId })</h5>
     }
 <br>
 <br>  
-<h4>Flavors</h4>
+<h4>@Html.ActionLink("Flavors", "Index", "Flavors")</h4>
+<hr>
     @foreach (Flavor flavor in ViewBag.Flavors)
     {
       <h5>@Html.ActionLink($"{flavor.FlavorName}", "Details", "Flavors", new { id = flavor.FlavorId })</h5>
-    }
-<br>
-<br>
-<br>
-<p>@Html.ActionLink("Home", "Index")</p>
+    }    
+
