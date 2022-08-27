@@ -1,0 +1,44 @@
+@{
+  Layout ="_Layout";
+}
+
+@using Treats.Models;
+@model Treats.Models.Treat
+
+<h2>Treat Details!</h2>
+<hr/>
+
+<h3>Name: @Model.TreatName</h3>
+<h3>Description: @Model.Description</h3>
+<br>
+<button class="btn btn-alert">@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId})</button>
+<br>
+@if(@Model.Flavors.Count == 0)
+{
+  <h3>This treat has no flavors!</h3>
+  @Html.ActionLink("Would you like to add one?", "AddFlavor", new {id = @Model.TreatId })
+}
+else 
+{
+  <p>The flavors for this treat are: </p>
+  <ul>
+  @foreach(TreatFlavor join in Model.Flavors)
+  {
+    <li>@Html.ActionLink($"{join.Flavor.FlavorName}", "Details", "Flavors", new { id = join.Flavor.FlavorId })</li>
+  }
+  </ul>
+  @foreach(var join in Model.Flavors)
+  {
+  @if (User.Identity.IsAuthenticated)
+      {   
+        @using (Html.BeginForm("DeleteFlavor", "Treats"))
+        {
+          @Html.Hidden("joinId", @join.TreatFlavorId)
+          <input type="submit" value="Delete"/>
+        }
+      }
+  }
+  @Html.ActionLink("Add another flavor to this treat", "AddFlavor", new {id = @Model.TreatId })
+<br>
+<br>
+}

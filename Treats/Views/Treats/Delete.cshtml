@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Treats.Models
+@model Treats.Models.Treat
+
+<h1>Remove this treat from the inventory?</h1>
+<hr/>
+
+<h3>Name: @Model.TreatName</h3>
+
+<h3>Description: @Model.Description</h3>
+
+
+<hr/>
+
+
+<h2>Are you sure you want to remove: @Model.TreatName</h2>
+@using (Html.BeginForm())
+{
+  <button type="submit" class="btn btn-alert">Delete?</button>
+}

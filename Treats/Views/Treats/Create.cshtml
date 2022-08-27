@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Treats.Models;
+@model Treats.Models.Treat;
+
+<h4>Add a new Treat:</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.TreatName)
+  @Html.TextBoxFor(model => model.TreatName, new { @class="form-control"})
+  
+  @Html.LabelFor(model => model.Description)
+  @Html.TextBoxFor(model => model.Description, new { @class="form-control"})
+  
+  
+  <input type="submit" value="Add Treat" />
+
+}

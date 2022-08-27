@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Treats.Models;
+@model Treats.Models.Treat;
+
+<h4>Edit this Treat: @Html.DisplayFor(model => model.TreatName)</h4>
+
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.TreatId)
+
+  @Html.LabelFor(model => model.TreatName)
+  @Html.EditorFor(model => model.TreatName, new { @class="form-control"} )
+
+  @Html.LabelFor(model => model.Description)
+  @Html.EditorFor(model => model.Description, new { @class="form-control"})
+
+  <button type="submit" class="btn btn-default">Save Changes</button>
+}
