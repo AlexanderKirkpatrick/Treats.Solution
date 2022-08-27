@@ -12,9 +12,9 @@ namespace Treats.Models
     }
 
     public int TreatId { get; set; }
-    public string Name { get; set; }
+    public string TreatName { get; set; }
     public string Description { get; set; }
-    
+
     public virtual ICollection<TreatFlavor> Flavors { get; set; }
   }
 }
