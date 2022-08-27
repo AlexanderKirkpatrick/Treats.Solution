@@ -69,7 +69,7 @@ namespace Treats.Controllers
     public ActionResult AddTreat(int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(flavors => flavors.FlavorId == id);
-      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "Name");
+      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "TreatName");
       return View(thisFlavor);
     }
 
@@ -83,7 +83,7 @@ namespace Treats.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-    
+
     [Authorize]
     public ActionResult Delete(int id)
     {

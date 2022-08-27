@@ -25,7 +25,7 @@ namespace Treats.Controllers
 
     public ActionResult Index()
     {
-      List<Treat> treatList = _db.Treats.Include(treats => treats.Flavors).ThenInclude(join => join.Flavor).OrderBy(treats => treats.Name).ToList();
+      List<Treat> treatList = _db.Treats.Include(treats => treats.Flavors).ThenInclude(join => join.Flavor).OrderBy(treats => treats.TreatName).ToList();
       return View(treatList);
     }
     
@@ -86,7 +86,7 @@ namespace Treats.Controllers
     public ActionResult AddFlavor(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
-      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Name");
+      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorName");
       return View(thisTreat);
     }
 
