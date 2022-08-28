@@ -2,7 +2,7 @@
 
 #### By _**Alexander Kirkpatrick**_
 
-#### _A MVC web application for managing a factory's treats and it's flavors._
+#### _A MVC web application for managing a factory's treats and it's flavors, using authentication with identity framework._
 
 ## Technologies Used
 
@@ -19,7 +19,7 @@
 
 ## Description
 
-_This application was created for an independent project requirement during my time at Epicodus. It allows the user to to manage a list of treats and the treat's flavors, following best practices and conventions, as established by the CRUD methodology. This application utilizes MySQl Workbench for hosting and data storage capabilities. This project has a many to many relationship policy. It also uses authentication to allow the user to log in and edit the database._
+_This application was created for an independent project requirement during my time at Epicodus. It allows the user to to manage a list of treats and the treat's flavors, following best practices and conventions, as established by the CRUD methodology. This application utilizes MySQl Workbench for hosting and data storage capabilities. This project has a many to many relationship policy. It also uses authentication with identity to allow the user to log in and edit the database._
 
 ## Setup/Installation Requirements
 
